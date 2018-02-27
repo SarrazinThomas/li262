@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JQUERY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <p id="p1">Bonjour1</p>
+    <p id="p2">Bonjour2</p>
+    <p id="p3">Bonjour3</p>
+
+    
+    <input type="text" name="prenom" id="prenom" placeholder="prenom"/>
+    <br />
+    <button id="btn_prenom">Clic moi prenom</button>
+    <br />
+    <button id="btn_reset">Clic moi reset</button>
+    <br />
+    <button id="btn_liste_reset">Clic moi reset liste</button>
+    <br />
+    <ul id="listes_prenoms">
+        
+    </ul>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log("OK");
+        });
+        $("#btn").click(function() {
+            console.log("cliqué");
+        });
+        $("#p1").dblclick(function() {
+            //$(this).hide();
+            $(this).html("au <strong>revoir</strong> Felix");
+        });
+        
+        $("#btn_prenom").click(function() {
+           let prenom = $("#prenom").val();
+           console.log(prenom);
+           nbrChildren = $("#listes_prenoms").children().length;
+           if (nbrChildren%2){
+               $("#listes_prenoms").append("<li>" + $("#prenom").val() + "</li>");
+                prenom = $("#prenom").val("");
+            } else {
+                $("#listes_prenoms").append("<li class='impaire'>" + $("#prenom").val() + "</li>");
+                 prenom = $("#prenom").val("");
+           }
+        });
+        
+        $("#btn_reset").click(function() {
+           let prenom = $("#prenom").val("");
+
+        });
+
+        $("#btn_liste_reset").click(function(){
+//            $("#listes_prenoms").html(""); //Insere du vide
+//            $("#listes_prenoms").remove(); //Supprime l'élément entier
+//            $("#listes_prenoms").empty();  //Supprime tous les enfants
+//            $("#listes_prenoms .impaire").remove();  //Supprime tous lignes impaires de la liste
+            $("#listes_prenoms li:nth-child(2n)").remove();  //Supprime tous lignes paires de la liste
+
+        });
+    
+        </script>    
+</body>
+</html>
