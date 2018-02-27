@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+<style>
+    div{
+        height: 200px;
+        width: 200px;
+        float: left;
+    }
+
+    table{
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+    table tbody tr td{
+        height: 3px;
+        width: 120px;
+    }
+
+</style>
+</head>
+<body>
+    <div id="div1">
+        <form id="Formulaire">
+            <label for="nom">Nom</label><input type="text" id="nom" required="required" value="Sarrazin"><br />
+            <label for="prenom">Prenom</label><input type="text" id="prenom" required="required" value="Thomas"><br />
+            <label for="age">Age</label> <input type="number" id="age" required="required" value="25"><br />
+            <input type="button" id = "ajout" value="Ajouter">            
+        </form>
+    </div>
+    <div id="div2">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nom</td>
+                    <td>Prenom</td>
+                    <td>Age</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script type="module" src="../js/exercice7.js"></script>
+</body>
+</html>
