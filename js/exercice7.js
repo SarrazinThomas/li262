@@ -8,7 +8,6 @@ const buttonAjout = document.querySelector("#ajout");
 function add(personne){
     tabPersonnes.push(personne);
     afficheTabPers(tabPersonnes);
-    console.log(tabPersonnes);
 }
 
 function del(buttonId){
@@ -21,9 +20,7 @@ function del(buttonId){
 function afficheTabPers(tabPersonnes){
     const tBody = document.querySelectorAll("tbody")[0];
     let contenu="";
-    let i=1;
     tabPersonnes.forEach(p => {
-        p.id = i;
         contenu +="<tr>";
         contenu +="<td>" + p.id + "</td>";
         contenu +="<td>" + p.nom + "</td>";
@@ -31,7 +28,6 @@ function afficheTabPers(tabPersonnes){
         contenu +="<td>" + p.age + "</td>";
         contenu +="<td><input type='button' id='P"+p.id+"' value='X'</td>";
         contenu +="</tr>";
-        i++;
     });
     tBody.innerHTML=contenu;
     const tabInputButtonSuppr = tBody.querySelectorAll("input");
@@ -44,7 +40,24 @@ function afficheTabPers(tabPersonnes){
 
 buttonAjout.addEventListener("click",function(){
 //    let personne = new Personne((tabPersonnes.length+1),inputNom.value,inputPrenom.value,inputAge.value);
-
+const xhttp = new XMLHttpRequest();
+const url = "../php/serveur.php?nom="+inputNom.value+"&prenom="+inputPrenom.value+"&age="+inputAge.value;
     
-add(personne);
-})
+    xhttp.open("GET",url,true);
+    xhttp.send();
+    xhttp.onload = function (){
+        if ((this.readyState == 4) && (this.status == 200)){
+            const p = JSON.parse(this.response);
+            console.log(p);
+            add(p);
+        }
+    }
+});
+
+
+/*
+* Manipuler du JSON
+* JSON.parse() : String => Objet JSON
+* JSON.stringify() : Objet JS => String*
+*
+*/
