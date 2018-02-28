@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JQUERY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .cacher{
+            display: none;
+            
+        }
+        .montrer{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="block1" style="width: 100px;height: 100px; background-color: red"></div>
+    <div id="block2" style="width: 100px;height: 100px; background-color: grey"></div>
+
+    <button id="btn1">Bloc 1</button>
+    <button id="btn2">Bloc 2</button>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btn1").click(function () {
+//                if ($("#block1").hasClass("cacher")) {$("#block1").removeClass("cacher");}
+//                else {$("#block1").addClass("cacher");} 
+                $("#block1").toggleClass("cacher");
+//                $("#btn2").toggle(this);
+            });
+            $("#btn2").click(function () {
+//               $("#block2").css("background-color","yellow");
+                $("#block2").css(
+                    {
+                        "background-color" : "green",
+                        "width" : "400px"
+                    }
+                );
+            });
+        });
+    
+    </script>    
+</body>
+</html>
+

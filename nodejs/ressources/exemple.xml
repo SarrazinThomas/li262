@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<utilisateurs>
+        <utilisateur id="1">
+        <nom>Sarrazin</nom>
+        <prenom>Thomas</prenom>
+        </utilisateur>
+        <utilisateur id="2">
+        <nom>Sarrazin</nom>
+        <prenom>Justine</prenom>
+        </utilisateur>
+</utilisateurs>
