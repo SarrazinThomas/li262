@@ -1,0 +1,25 @@
+html
+    head
+        title article PUG
+    body
+        h1 #{titre1}
+        p Pour les produits
+        ul  
+            each p in inventaire
+                if p.prix == null
+                    li produit : #{p.titre}
+                else 
+                    li produit : #{p.titre} prix : #{p.prix}€ 
+        table
+            tbody
+                - let i = 1
+                each p in inventaire
+                    tr
+                        if p.prix == null
+                            td #{i}
+                            td produit : #{p.titre}
+                        else 
+                            td #{i}
+                            td produit : #{p.titre} 
+                            td prix : #{p.prix}€
+                    - i++

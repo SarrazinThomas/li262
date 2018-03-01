@@ -1,0 +1,34 @@
+html
+    head
+        title Connexion
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    body
+        h1 Fenetre de connexion
+        button#btn GO
+        if (error)
+            p #{error}
+        else
+            form(method="POST" action="/users/")
+                label(for="email") login
+                input(
+                    type="text"
+                    id="email"
+                    required="required"
+                    name="email"
+                    value="toto@gmail.com"
+                )
+                label(for="mdp") Mot de passe
+                input(
+                    type="text"
+                    id="mdp"
+                    required="required"
+                    name="mdp"
+                )
+                input(
+                    type="submit"
+                    id="valida"
+                    required="required"
+                    value="connexion"
+                )
+            p#utilisateurs
+            script(src="/js/home.js",type="text/javascript")
